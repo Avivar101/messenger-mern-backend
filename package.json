@@ -1,0 +1,21 @@
+{
+  "name": "messenger-mern-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Ben",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "epress": "0.0.1-security",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.3",
+    "mongoose-global": "^1.0.1",
+    "pusher": "^4.0.2"
+  }
+}
