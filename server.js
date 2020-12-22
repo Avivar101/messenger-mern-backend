@@ -56,5 +56,5 @@ app.get('/retrieve/conversation', (req, res) => {
 })
 
 //listener
-//listen on the prot and fire the function
+//listen on the port and fire the function
 app.listen(port, ()=>console.log(`listening on loaclhost:${port}`))
