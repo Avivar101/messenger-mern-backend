@@ -3,7 +3,6 @@ import express from 'express'
 import mongoose from 'mongoose'
 import Pusher from 'pusher'
 import cors from 'cors'
-
 import mongoMessages from './messageModel.js'
 
 //app config
@@ -17,9 +16,9 @@ app.use(express.json())
 app.use(cors())
 
 //db config
-const mongoURL ='mongodb+srv://admin:GNyA0YEbIXHjBa4D@cluster0.xcabl.mongodb.net/messengerDB?retryWrites=true&w=majority'
+const mongoURI ='mongodb+srv://admin:GNyA0YEbIXHjBa4D@cluster0.xcabl.mongodb.net/messengerDB?retryWrites=true&w=majority'
 
-mongoose.connect(mongoURL, {
+mongoose.connect(mongoURI, {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -50,6 +49,9 @@ app.get('/retrieve/conversation', (req, res) => {
         if (err) {
             res.status(500).send(err)
         } else {
+            data.sort((b, a) => {
+                return a.timestamp - b.timestamp;
+            });
             res.status(200).send(data)
         }
     })
@@ -57,4 +59,4 @@ app.get('/retrieve/conversation', (req, res) => {
 
 //listener
 //listen on the port and fire the function
-app.listen(port, ()=>console.log(`listening on loaclhost:${port}`))
+app.listen(port, () => console.log(`listening on loaclhost:${port}`))

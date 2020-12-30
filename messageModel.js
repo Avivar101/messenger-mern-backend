@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const messageSchema = mongoose.Schema({
     username: String,
-    massage: String,
+    message: String,
     timestamp: String
 })
 
